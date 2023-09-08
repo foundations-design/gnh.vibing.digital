@@ -1,7 +1,7 @@
 ---
 baseUrl: gnh.vibing.digital
 title: George Nicholson Harris
-headline: NBA Dancer | Choreorgrapher | Data Analyst
+# headline: NBA Dancer | Choreographer | Data Analyst
 links:
    - 
       image: /assets/icons/mavericks.png
@@ -21,6 +21,7 @@ links:
 titleColor: "white"
 headlineColor: "#FFFFFF"
 backgroundImage: "/background.png"
+backgroundColor: "#000408"
 lyket: false
 ---
 
@@ -48,7 +49,6 @@ lyket: false
 
 <style>
    /* layout styles for the top-level sections: header, section.links*/
-
    header {
       position: absolute;
       top: 10%;
@@ -56,7 +56,7 @@ lyket: false
       right: 5%;
       height: 25%;
       display: grid;
-      place-content: center;
+      place-content: flex-start;
    }
 
    main {
@@ -85,7 +85,7 @@ lyket: false
 
    h1.title {
       font-size: clamp(16px, 25lvw, 160px);
-      text-align: center;
+      text-align: left;
       width: min-content;
       font-variation-settings: "WONK" 1, "opsz" 144, "SOFT" 22, "wght" 900;
       color: {{titleColor}};
@@ -113,6 +113,10 @@ lyket: false
       direction: rtl;
       width: max-content;
       margin-right: var(--space-md);
+   }
+
+   section.links img {
+      max-width: 50px;
    }
 </style>
 
