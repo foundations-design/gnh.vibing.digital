@@ -4,7 +4,7 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="{{ '/assets/fonts/tungsten/stylesheet.css'}}" rel="stylesheet">
+      <link href="{{ '/assets/fonts/fraunces/full.css'}}" rel="stylesheet">
       <link rel="stylesheet" href="/styles/index.css">
       <title>🔥 {{title}}</title>
    </head>
@@ -13,7 +13,9 @@
       {% block content %}{% endblock %}
 
       <footer>
-         <div
+         <div>
+            {% if lyket %}
+               <div
             class="lyket"
             data-lyket-type="like"
             data-lyket-id="{{baseUrl}}"
@@ -21,7 +23,9 @@
             data-lyket-template="twitter"
             data-lyket-font-family="sans-serif"
             data-lyket-color-text="rgba(255,255,255,.5)"
-      ></div>
+            ></div>
+            {% endif %}
+         </div>
          <div class="logo">
             <a href="https://referral.foundations.design/jspe4ks" target="_blank">
                {% include "logo-var1.svg" %}
@@ -67,6 +71,10 @@
             height: 100lvh;
             width: 100lvw;
             background-attachment: fixed;
+            background-image: url({{backgroundImage}});
+            background-position: 50% 0;
+            background-size: cover;
+            position: relative;
          }
 
          /* the value of media query below should be the same as --starter-max-width */
@@ -96,8 +104,14 @@
             margin-left: var(--space-xs);
             place-self: flex-start;
          }
+
+         .logo {
+            margin-bottom: var(--space-2xs);
+         }
       </style>
+      {% if lyket %}
 
-      <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_b2e989b79fbbbe5f5c7b7d42869d3d"></script>
+         <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_b2e989b79fbbbe5f5c7b7d42869d3d"></script>
 
+      {% endif %}
    </html>
