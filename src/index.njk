@@ -1,0 +1,162 @@
+---
+baseUrl: starter.vibing.digital
+title: starter
+headline: what's the vibe?
+links:
+   - 
+      image: https://res.cloudinary.com/foundations-design/image/upload/v1693520390/sm-icons/instagram.svg
+      url: https://www.instagram.com/foundations.design/
+   - 
+      image: https://res.cloudinary.com/foundations-design/image/upload/v1693256360/sm-icons/tiktok.svg
+      url: https://www.tiktok.com/@justin.spe4ks?is_from_webapp=1&sender_device=pc
+   - 
+      image: https://res.cloudinary.com/foundations-design/image/upload/v1693256360/sm-icons/spotify.svg
+      url: https://open.spotify.com/user/earlman32?si=b91656ecae0d4f38
+   - 
+      image: https://res.cloudinary.com/foundations-design/image/upload/v1693256360/sm-icons/threads.svg
+      url: https://www.threads.net/@justin.spe4ks
+   - 
+      image: https://res.cloudinary.com/foundations-design/image/upload/v1693256360/sm-icons/twitch.svg
+      url: https://www.twitch.tv/justinspe4ks
+titleColor: "#000853"
+headlineColor: "#FFFFFF"
+backgroundImage: "/background.png"
+---
+
+{# ! INCOMPLETE #}
+{# These #}
+
+{% extends "base.njk" %}
+{% block content %}
+
+   <main>
+      <hgroup>
+         {# <h1>
+        <svg id="svg-title">
+          <text font-family="Fraunces Variable"  y="50" >{{title}}</text>
+        </svg>
+      </h1> #}
+         <h1 class="title">{{title}}</h1>
+         <p class="headline">{{headline}}</p>
+      </hgroup>
+
+      <nav class="links">
+         {% for link in links %}
+            <div class="link">
+               <a target="_blank" href="{{link.url}}"><img src="{{link.image}}"/></a>
+            </div>
+         {% endfor %}
+      </nav>
+   </main>
+
+</body>
+
+<!-- The following code sets <text> at 
+  90vw on portrait devices and 20vh on landscape devices-->
+<style>
+   @media screen and (orientation: portrait) {
+      .svg-title {
+         width: 90vw;
+         height: auto;
+      }
+   }
+
+   @media screen and (orientation: landscape) {
+      .svg-title {
+         width: auto;
+         height: 20lvh;
+      }
+   }
+</style>
+
+<style>
+
+   * {
+      font-family: "Fraunces Variable";
+   }
+
+   hgroup {
+      width: max-content;
+      height: max-content;
+      place-self: flex-start center;
+      position: absolute;
+      top: 10lvh;
+   }
+
+   hgroup h1 {
+      font-variation-settings: "WONK" 1, "opsz" 144, "SOFT" 22, "wght" 900;
+      color: {{titleColor}};
+      margin: 0;
+      line-height: 1;
+   }
+
+   hgroup p {
+      font-variation-settings: "WONK" 1, "opsz" 144, "SOFT" 0, "wght" 527;
+      color: {{headlineColor}};
+      text-align: right;
+      margin-top: -0.5rem;
+      margin-right: 0.5em;
+      letter-spacing: 0.09em;
+      opacity: 0.9;
+   }
+
+   body {
+      background-image: url({{backgroundImage}});
+      background-position: 50% 0;
+      background-size: cover;
+      position: relative;
+   }
+   
+   main {
+      height: 100%;
+      display: grid;
+   }
+   
+   .logo {
+      max-width: 30px;
+   }
+
+   .links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      max-height: 48lvh;
+      flex-wrap: wrap;
+      direction: rtl;
+
+      position: absolute;
+      right: 12.5vw;
+      bottom: 20lvh;
+   }
+   @media screen and (orientation: portrait) {
+      h1.title {
+         font-size: 25vw;
+         text-align: center;
+         width: min-content;
+      }
+
+      hgroup .headline {
+         font-size: 4vw;
+      }
+   }
+
+   @media screen and (orientation: landscape) {
+      h1.title {
+         font-size: 10vw;
+         text-align: center;
+      }
+   }
+</style>
+
+<script>
+   // In order to resize SVGs, a viewBox must be set
+   // The following code sets the viewBox based on the size of the browser window.
+   const svg = document.querySelector('#svg-title');
+   const svg_text = document.querySelector('#svg-title text');
+   const bbox = svg.getBBox();
+   svg.setAttribute('viewBox', `${bbox.x} ${bbox.y} ${bbox.width * 1.5} ${bbox.height}`);
+   svg_text.setAttribute('x', '50%')
+   svg_text.setAttribute('text-anchor', 'middle')
+</script>
+
+{% endblock %}
