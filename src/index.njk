@@ -6,18 +6,23 @@ links:
    - 
       image: /assets/icons/mavericks.png
       url: 
+      blendmode: normal # Default
    - 
       image: /assets/icons/bulls.png
       url: 
+      blendmode: normal # Default
    - 
       image: /assets/icons/coda.png
       url: 
+      blendmode: multiply
    - 
       image: /assets/icons/dailycenter.png
       url: 
+      blendmode: multiply
    - 
       image: /assets/icons/purdue.png
-      url: 
+      url:
+      blendmode: multiply
 titleColor: "white"
 headlineColor: "#FFFFFF"
 backgroundImage: "/background.png"
@@ -39,7 +44,7 @@ lyket: false
       <section class="links">
          {% for link in links %}
             <nav class="link">
-               <a target="_blank" href="{{link.url}}"><img src="{{link.image}}"/></a>
+               <a target="_blank" href="{{link.url}}" style="mix-blend-mode:{{link.blendmode}};"><img src="{{link.image}}"/></a>
             </nav>
          {% endfor %}
       </section>
@@ -113,10 +118,6 @@ lyket: false
       direction: rtl;
       width: max-content;
       margin-right: var(--space-md);
-   }
-
-   section.links .link {
-      mix-blend-mode: multiply;
    }
 
    section.links img {
