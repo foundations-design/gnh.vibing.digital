@@ -5,25 +5,36 @@ title: George Nicholson Harris
 links:
    - 
       image: /assets/icons/mavericks.png
-      url: 
+      url: https://www.instagram.com/mavsoffcourt/
       blendmode: normal # Default
+      gridrow: 1
+      gridcolumn: 2
    - 
       image: /assets/icons/bulls.png
-      url: 
+      url: https://www.instagram.com/bulls.entertainment/
       blendmode: normal # Default
+      gridrow: 1
+      gridcolumn: 3
    - 
       image: /assets/icons/coda.png
-      url: 
+      url: https://www.instagram.com/coda_world/
       blendmode: multiply
+      gridrow: 2
+      gridcolumn: 1
    - 
       image: /assets/icons/dailycenter.png
-      url: 
+      url: https://www.instagram.com/dailycenterchicago/
       blendmode: multiply
+      gridrow: 2
+      gridcolumn: 2
    - 
       image: /assets/icons/purdue.png
-      url:
+      url: https://www.instagram.com/dance2xspurdue/
       blendmode: multiply
+      gridrow: 2
+      gridcolumn: 3
 titleColor: "white"
+titleSize: +3  # Accepts "+/-N". N is in lvw.
 headlineColor: "#FFFFFF"
 backgroundImage: "/background.png"
 backgroundColor: "#000408"
@@ -43,8 +54,12 @@ lyket: false
    <main>
       <section class="links">
          {% for link in links %}
-            <nav class="link">
-               <a target="_blank" href="{{link.url}}" style="mix-blend-mode:{{link.blendmode}};"><img src="{{link.image}}"/></a>
+            <nav class="link" style="
+                     grid-row: {{link.gridrow}};
+                     grid-column: {{link.gridcolumn}};">
+               <a target="_blank" href="{{link.url}}"><img 
+                  style="
+                     mix-blend-mode:{{link.blendmode}};" src="{{link.image}}"/></a>
             </nav>
          {% endfor %}
       </section>
@@ -56,22 +71,22 @@ lyket: false
    /* layout styles for the top-level sections: header, section.links*/
    header {
       position: absolute;
-      top: 10%;
+      top: 5%;
       left: 5%;
       right: 5%;
-      height: 25%;
+      height: 30%;
       display: grid;
       place-content: flex-start;
    }
 
    main {
       position: absolute;
-      bottom: 10%;
+      bottom: 8%;
       right: 5%;
       left: 5%;
-      height: 52%;
+      height: 60%;
       display: grid;
-      place-content: center flex-end;
+      place-content: flex-end;
    }
 </style>
 
@@ -89,7 +104,7 @@ lyket: false
    }
 
    h1.title {
-      font-size: clamp(16px, 25lvw, 160px);
+      font-size: clamp(16px, {{25 + titleSize}}lvw, 160px);
       text-align: left;
       width: min-content;
       font-variation-settings: "WONK" 1, "opsz" 144, "SOFT" 22, "wght" 900;
@@ -111,18 +126,28 @@ lyket: false
 
    section.links {
       max-height: 48lvh;
+      max-width: 100%;
       display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
+      flex-direction: row;
+      gap: var(--space-2xs);
       flex-wrap: wrap;
-      direction: rtl;
-      width: max-content;
-      margin-right: var(--space-md);
+      direction: ltr;
+      margin-right: var(--space-xs);
+      /*width: max-content;*/
+
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr 1fr;
    }
 
    section.links img {
-      max-width: 50px;
+      width: 100%;
    }
+
+   section.links .link {
+      width: 80px;
+   }
+
+   section.links .link:nth-child(2) {}
 </style>
 
 {% endblock %}
