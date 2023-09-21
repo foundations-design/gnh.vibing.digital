@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.0.9",
+    "@fontsource-variable/inconsolata": "^5.0.8",
     "browserslist": "^4.21.10",
     "lightningcss": "^1.21.7",
     "sass": "^1.66.1"

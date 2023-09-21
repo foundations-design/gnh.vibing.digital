@@ -35,7 +35,7 @@ links:
       gridcolumn: 3
 titleColor: "white"
 titleSize: +3  # Accepts "+/-N". N is in lvw.
-headlineColor: "#FFFFFF"
+headlineColor: "#D08BC7"
 backgroundImage: "/background.png"
 backgroundColor: "#000408"
 lyket: false
@@ -43,6 +43,23 @@ lyket: false
 
 {% extends "base.njk" %}
 {% block content %}
+
+   <div class="video-banner">
+      <div class="link">
+         <a href="/vid-2.mp4">
+            <p>
+        Watch the latest project >>>
+      </p>
+         </a>
+      </div>
+      <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+         <!-- 
+   - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
+   WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+         {# <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> #}
+         <source src="/vid-2.mp4" type="video/mp4">
+      </video>
+   </div>
 
    <!-- header: for introductory content -->
    <header>
@@ -71,7 +88,7 @@ lyket: false
    /* layout styles for the top-level sections: header, section.links*/
    header {
       position: absolute;
-      top: 5%;
+      top: 15%;
       left: 5%;
       right: 5%;
       height: 30%;
@@ -88,15 +105,38 @@ lyket: false
       display: grid;
       place-content: flex-end;
    }
+
+   .video-banner p {
+      position: absolute;
+      top: 3%;
+      right: var(--space-2xs);
+      text-decoration: underline;
+      font-stretch: condensed;
+   }
+
+   /*add object-position to config*/
+   video {
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      width: 100%;
+      height: 15%;
+      transform: translateX(-50%) translateY(-50%);
+      /*background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;*/
+      background-size: cover;
+      transition: 1s opacity;
+   }
 </style>
 
 <style>
 
-   /*styles for WITHIN the top-level sections: header, section.links*/
-
    * {
-      font-family: "Fraunces Variable";
+      font-family: Inconsolata;
    }
+
+   /*styles for WITHIN the top-level sections: header, section.links*/
 
    header hgroup {
       width: max-content;
@@ -105,9 +145,9 @@ lyket: false
 
    h1.title {
       font-size: clamp(16px, {{25 + titleSize}}lvw, 160px);
+      font-family: "Tungsten Narrow";
       text-align: left;
       width: min-content;
-      font-variation-settings: "WONK" 1, "opsz" 144, "SOFT" 22, "wght" 900;
       color: {{titleColor}};
       margin: 0;
       line-height: 1;
@@ -115,7 +155,6 @@ lyket: false
 
    p.headline {
       font-size: clamp(16px, 4lvw, 180px);
-      font-variation-settings: "WONK" 1, "opsz" 144, "SOFT" 0, "wght" 527;
       color: {{headlineColor}};
       text-align: right;
       margin-top: -0.5rem;
@@ -147,7 +186,11 @@ lyket: false
       width: 80px;
    }
 
-   section.links .link:nth-child(2) {}
+   .video-banner p {
+      color: {{headlineColor}};
+      font-weight: 600;
+      font-family: "Inconsolata Variable", monospace;
+   }
 </style>
 
 {% endblock %}

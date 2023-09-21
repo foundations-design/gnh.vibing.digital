@@ -42,7 +42,7 @@ module.exports = (eleventyConfig) => {
    });
 
    eleventyConfig.addPassthroughCopy({
-      "node_modules/@fontsource-variable/fraunces": "assets/fonts/fraunces",
+      "node_modules/@fontsource-variable/inconsolata": "assets/fonts/inconsolata",
       "src/static": ".",
    });
 
