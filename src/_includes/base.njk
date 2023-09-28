@@ -10,7 +10,10 @@
 
       <meta property="og:image" content="/og_image.png">
 
-      <title>🔥 {{title}}</title>
+      {% favicons 'src/favicon.png',
+      appleIconBgColor = theme.accentColor %}
+
+      <title>{{title}}</title>
    </head>
 
    <body>
