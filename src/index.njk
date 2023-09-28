@@ -39,24 +39,33 @@ headlineColor: "#D08BC7"
 backgroundImage: "/background.png"
 backgroundColor: "#000408"
 lyket: false
+developerSettings:
+   muxVideo:
+      # muxVideoId: g3Usjfjtoif3af5vQA6nmsyG61Mbcd6LddMYBvA83800
+      # startTime: 90
+      muxVideoId: 024ddtK6yY2LMDzwCa017CjlLN01Cbs66hSyxBV01uyxSX8
 ---
 
 {% extends "base.njk" %}
 {% block content %}
 
    <div class="video-banner">
+      <script src="https://cdn.jsdelivr.net/npm/@mux/mux-player"></script>
       <div class="link">
-         <a href="/vid-2.mp4">
+         <a href="">
             <p>Watch the latest project >>></p>
          </a>
       </div>
-      <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
-         <!-- 
-   - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
-   WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
-         {# <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> #}
-         <source src="/vid-2-clip.webm" type="video/mp4">
-      </video>
+      <mux-player
+         stream-type="on-demand"
+         playback-id="{{developerSettings.muxVideo.muxVideoId}}"
+         metadata-video-title="Placeholder (optional)"
+         metadata-viewer-user-id="Placeholder (optional)"
+         primary-color="#FFFFFF"
+         secondary-color="#000000"
+         autoplay="any"
+         start-time="{{developerSettings.muxVideo.startTime}}"
+      ></mux-player>
    </div>
 
    <!-- header: for introductory content -->
@@ -79,7 +88,6 @@ lyket: false
          {% endfor %}
       </section>
    </main>
-
 </body>
 
 <style>
@@ -102,29 +110,6 @@ lyket: false
       height: 60%;
       display: grid;
       place-content: flex-end;
-   }
-
-   .video-banner p {
-      position: absolute;
-      top: 3%;
-      right: var(--space-2xs);
-      text-decoration: underline;
-      font-stretch: condensed;
-   }
-
-   /*add object-position to config*/
-   video {
-      object-fit: cover;
-      object-position: center;
-      position: absolute;
-      top: 15%;
-      left: 50%;
-      width: 100%;
-      height: 15%;
-      transform: translateX(-50%) translateY(-50%);
-      /*background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;*/
-      background-size: cover;
-      transition: 1s opacity;
    }
 </style>
 
@@ -185,9 +170,44 @@ lyket: false
    }
 
    .video-banner p {
+      position: absolute;
+      top: 3%;
+      right: var(--space-2xs);
+      text-decoration: underline;
+      font-stretch: condensed;
+   }
+
+   /*add object-position to config*/
+   video {
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 15%;
+      left: 50%;
+      width: 100%;
+      height: 15%;
+      transform: translateX(-50%) translateY(-50%);
+      /*background: url("//demosthenes.info/assets/images/polina.jpg") no-repeat;*/
+      background-size: cover;
+      transition: 1s opacity;
+   }
+
+   .video-banner p {
       color: {{headlineColor}};
       font-weight: 600;
       font-family: "Inconsolata Variable", monospace;
+   }
+
+   mux-player {
+      --controls: none;
+      --media-object-fit: cover;
+      --media-object-position: top;
+      top: 15%;
+      left: 50%;
+      width: 100%;
+      height: 15%;
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
    }
 </style>
 
