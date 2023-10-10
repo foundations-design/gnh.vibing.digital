@@ -19,8 +19,9 @@
   <body>
 
     <div class="background"></div>
-    {% block content %}{% endblock %}
-
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
     <footer>
       <div>
         {% if lyket %}
@@ -79,17 +80,12 @@
       body {
         height: 100lvh;
         width: 100lvw;
-        background-image: url({{content.backgroundImage}});
-        background-color: {{theme.backgroundColor}};
-        background-position: 50% 80px;
-        background-size: cover;
-        background-repeat: no-repeat;
         position: relative;
       }
 
       .background {
-        height: 100lvh;
-        width: 100lvw;
+        height: 100%;
+        width: 100%;
         background-image: url({{content.backgroundImage}});
         background-color: {{theme.backgroundColor}};
         background-position: 50% 80px;
@@ -98,8 +94,17 @@
         position: fixed;
       }
 
+      .content {
+        position: relative;
+        height: 100lvh;
+        width: 100lvw;
+        overflow-y: scroll;
+      }
+
       /* the value of media query below should be the same as --starter-max-width */
       @media (min-width: 720px) {
+        .background,
+        .content,
         body {
           max-width: var(--starter-max-width);
           max-height: var(--starter-max-width);
