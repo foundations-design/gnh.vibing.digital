@@ -3,9 +3,14 @@ const path = require("node:path");
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const browserslist = require("browserslist");
 const { transform, browserslistToTargets } = require("lightningcss");
+const yaml = require("js-yaml");
 
 module.exports = (eleventyConfig) => {
    eleventyConfig.addPlugin(faviconsPlugin, { outputDir: "./dist", manifestData: { name: "George Nicholson Harris" } });
+
+   // To Support .yaml Extension in _data
+   // You may remove this if you can use JSON
+   eleventyConfig.addDataExtension("yaml", (contents) => yaml.load(contents));
 
    // Recognize Sass as a "template languages"
    eleventyConfig.addTemplateFormats("sass");

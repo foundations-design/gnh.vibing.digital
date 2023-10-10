@@ -1,37 +1,54 @@
-<style>
-  .bookings-form {
-    width: 500px;
-    margin: 6rem;
-  }
-</style>
+{% extends "base.njk" %}
+{% block content %}
 
-<form class="bookings-form" action="YOUR_SUBMISSION_URL" method="post">
-  <label for="name">What's your name?</label>
-  <input type="text" id="name" name="name" required><br><br>
+  <style>
+    .bookings-form,
+    input,
+    label,
+    textarea {
+      width: 100%;
+      font-size: 20px;
+    }
 
-  <label for="contact">How can I reach you?</label>
-  <input type="text" id="contact" name="contact" required><br><br>
+    .bookings-form * {
+      font-family: "Inconsolata Variable";
+      color: #FFFFFF;
+    }
 
-  <label for="services">What services are you interested in?</label>
-  <select id="services" name="services">
-    <option value="dance_gig">Dance Gig/Performance</option>
-    <option value="dance_teaching">Dance Teaching</option>
-    <option value="choreography">Choreography</option>
-    <option value="choreography">Collaboration</option>
-    <option value="other">Other</option>
-  </select><br><br>
+    label {
+      text-transform: none;
+      display: block;
+    }
+  </style>
 
-  <fieldset>
-    <legend>Details</legend>
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location"><br><br>
+  <form class="bookings-form" action="YOUR_SUBMISSION_URL" method="post">
+    <label for="name">What's your name?</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-    <label for="time">Time:</label>
-    <input type="text" id="time" name="time"><br><br>
+    <label for="contact">How can I reach you?</label>
+    <input type="text" id="contact" name="contact" required><br><br>
 
-    <label for="generalDetails">General Details:</label><br>
-    <textarea id="generalDetails" name="generalDetails" rows="4" cols="50"></textarea><br><br>
-  </fieldset>
+    <label for="services">What services are you interested in?</label>
+    <select id="services" name="services">
+      <option value="dance_gig">Dance Gig/Performance</option>
+      <option value="dance_teaching">Dance Teaching</option>
+      <option value="choreography">Choreography</option>
+      <option value="choreography">Collaboration</option>
+      <option value="other">Other</option>
+    </select><br><br>
 
-  <input type="submit" value="Submit">
-</form>
+    <fieldset>
+      <legend>Details</legend>
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location"><br><br>
+
+      <label for="time">Time:</label>
+      <input type="text" id="time" name="time"><br><br>
+
+      <label for="generalDetails">General Details:</label><br>
+      <textarea id="generalDetails" name="generalDetails" rows="4" cols="50"></textarea><br><br>
+    </fieldset>
+
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

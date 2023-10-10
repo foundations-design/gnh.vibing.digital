@@ -1,51 +1,3 @@
----
-baseUrl: gnh.vibing.digital
-title: George Nicholson Harris
-# headline: NBA Dancer | Choreographer | Data Analyst
-links:
-   - 
-      image: /assets/icons/mavericks.png
-      url: https://www.instagram.com/mavsoffcourt/
-      blendmode: normal # Default
-      gridrow: 1
-      gridcolumn: 2
-   - 
-      image: /assets/icons/bulls.png
-      url: https://www.instagram.com/bulls.entertainment/
-      blendmode: normal # Default
-      gridrow: 1
-      gridcolumn: 3
-   - 
-      image: /assets/icons/coda.png
-      url: https://www.instagram.com/coda_world/
-      blendmode: multiply
-      gridrow: 2
-      gridcolumn: 1
-   - 
-      image: /assets/icons/dailycenter.png
-      url: https://www.instagram.com/dailycenterchicago/
-      blendmode: multiply
-      gridrow: 2
-      gridcolumn: 2
-   - 
-      image: /assets/icons/purdue.png
-      url: https://www.instagram.com/dance2xspurdue/
-      blendmode: multiply
-      gridrow: 2
-      gridcolumn: 3
-titleColor: "white"
-titleSize: +3  # Accepts "+/-N". N is in lvw.
-headlineColor: "#D08BC7"
-backgroundImage: "/background.png"
-backgroundColor: "#000408"
-lyket: false
-developerSettings:
-   muxVideo:
-      muxVideoId: g3Usjfjtoif3af5vQA6nmsyG61Mbcd6LddMYBvA83800
-      startTime: 90
-      # muxVideoId: 024ddtK6yY2LMDzwCa017CjlLN01Cbs66hSyxBV01uyxSX8
----
-
 {% extends "base.njk" %}
 {% block content %}
 
@@ -71,13 +23,13 @@ developerSettings:
    <!-- header: for introductory content -->
    <header>
       <hgroup>
-         <h1 class="title">{{title}}</h1>
-         <p class="headline">{{headline}}</p>
+         <h1 class="title">{{content.title}}</h1>
+         <p class="headline">{{content.headline}}</p>
       </hgroup>
    </header>
    <main>
       <section class="links">
-         {% for link in links %}
+         {% for link in content.links %}
             <nav class="link" style="
                      grid-row: {{link.gridrow}};
                      grid-column: {{link.gridcolumn}};">
@@ -127,18 +79,18 @@ developerSettings:
    }
 
    h1.title {
-      font-size: clamp(16px, {{25 + titleSize}}lvw, 160px);
+      font-size: clamp(16px, {{25 + theme.titleSize}}lvw, 160px);
       font-family: "Tungsten Narrow";
       text-align: left;
       width: min-content;
-      color: {{titleColor}};
+      color: {{theme.titleColor}};
       margin: 0;
       line-height: 1;
    }
 
    p.headline {
       font-size: clamp(16px, 4lvw, 180px);
-      color: {{headlineColor}};
+      color: {{theme.headlineColor}};
       text-align: right;
       margin-top: -0.5rem;
       margin-right: 0.5em;
@@ -193,7 +145,7 @@ developerSettings:
    }
 
    .video-banner p {
-      color: {{headlineColor}};
+      color: {{theme.headlineColor}};
       font-weight: 600;
       font-family: "Inconsolata Variable", monospace;
    }
@@ -201,7 +153,7 @@ developerSettings:
    mux-player {
       --controls: none;
       --media-object-fit: cover;
-      --media-object-position: top;
+      --media-object-position: 20%;
       top: 15%;
       left: 50%;
       width: 100%;

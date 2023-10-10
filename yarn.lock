@@ -109,10 +109,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/fraunces/-/fraunces-5.0.9.tgz#86232046076f91d1c420e0b7f90f0cad588690be"
   integrity sha512-kOnLHTau+UM8c10rZGjA01SX096TnWlE+33GiMl165OtfOvuewl5+pui8pKdyy2asb5eMuvA3RCeyaMIwjs4tA==
 
-"@fontsource-variable/inconsolata@^5.0.8":
-  version "5.0.8"
-  resolved "https://registry.yarnpkg.com/@fontsource-variable/inconsolata/-/inconsolata-5.0.8.tgz#2b3c295356038b312b7590d92d5db55ef5348f4c"
-  integrity sha512-JVh3ly3cj+kw+8tG0f2+2u5IiOWUClj8in2e2SsbxtMDcxfyHdmmP46en+FWavkjiFWugtFXVa0HaON93AapFw==
+"@fontsource-variable/inconsolata@^5.0.13":
+  version "5.0.13"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/inconsolata/-/inconsolata-5.0.13.tgz#d42b9314308c98c25aa40a3f3dfdfd8a531e0392"
+  integrity sha512-lXZfTOnYb2mKihxfZrod6vRr13RDtpTCMRn6GFcH52tBiV+hVp0QFHgihjBe97A/Z/VXSx3a+fu2qO7L0S4u1w==
 
 "@iarna/toml@^2.2.5":
   version "2.2.5"
@@ -959,6 +959,13 @@ js-yaml@^3.13.1:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+js-yaml@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-4.1.0.tgz#c1fb65f8f5017901cdd2c951864ba18458a10602"
+  integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
+  dependencies:
+    argparse "^2.0.1"
 
 jstransformer@1.0.0:
   version "1.0.0"

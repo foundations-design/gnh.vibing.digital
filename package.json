@@ -8,9 +8,10 @@
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.0.9",
-    "@fontsource-variable/inconsolata": "^5.0.8",
+    "@fontsource-variable/inconsolata": "^5.0.13",
     "browserslist": "^4.21.10",
     "eleventy-plugin-gen-favicons": "^1.1.2",
+    "js-yaml": "^4.1.0",
     "lightningcss": "^1.21.7",
     "sass": "^1.66.1"
   }

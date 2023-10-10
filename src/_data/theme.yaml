@@ -1,0 +1,4 @@
+headlineColor: "#D08BC7"
+titleSize: +3  # Accepts "+/-N". N is in lvw.
+titleColor: "white"
+backgroundColor: "#000408"
