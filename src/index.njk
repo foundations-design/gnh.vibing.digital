@@ -40,9 +40,13 @@
          {% endfor %}
       </section>
    </main>
+   <section class="bookings-form-container">
+      {% include "bookings-form.njk" %}
+   </section>
 </body>
 
 <style>
+
    /* layout styles for the top-level sections: header, section.links*/
    header {
       position: absolute;
@@ -62,6 +66,11 @@
       height: 60%;
       display: grid;
       place-content: flex-end;
+   }
+
+   section.bookings-form-container {
+      top: 100%;
+      position: relative;
    }
 </style>
 
