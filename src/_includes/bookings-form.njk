@@ -2,7 +2,7 @@
   .bookings-form {
     --color-a: {{theme.headlineColor}};
     --color-b: {{theme.backgroundColor}};
-    padding: var(--space-md);
+    padding: var(--space-sm);
     background-color: rgba(0,0,0,.5);
   }
 
@@ -29,6 +29,16 @@
     font-family: "Inconsolata Variable";
   }
 
+  button,
+  fieldset,
+  input,
+  label,
+  legend,
+  select,
+  textarea {
+    border-radius: 3px;
+  }
+
   label {
     text-transform: none;
     display: block;
@@ -40,7 +50,6 @@
   select,
   textarea {
     transition: background-color 0.2s ease-in;
-    border-radius: 3px;
     border: 1px solid white;
     background-color: transparent;
     padding-left: var(--space-2xs);
@@ -110,8 +119,8 @@
       .then(() => {
         /* alert("Thank you for your submission") */
         const button = document.querySelector(".bookings-form  button[type='submit']")
-        button.innerHTML = "Thanks"
-        button.style = `color: var(--color-a); background-color: var(--color-b)`
+        button.innerHTML = "Thanks 🙂"
+        button.style = `color: var(--color-a); background-color: var(--color-b); border-color: var(--color-a);`
 
         button.disabled = true
       })
