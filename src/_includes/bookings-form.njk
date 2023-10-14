@@ -1,5 +1,7 @@
 <style>
   .bookings-form {
+    --color-a: {{theme.headlineColor}};
+    --color-b: {{theme.backgroundColor}};
     padding: var(--space-md);
     background-color: rgba(0,0,0,.5);
   }
@@ -59,7 +61,7 @@
   }
 </style>
 
-<form class="bookings-form" action="YOUR_SUBMISSION_URL" method="post">
+<form class="bookings-form" name="bookings-form" action="/success"  data-netlify="true" method="post">
   <h2>Bookings</h2>
   <label for="name">What's your name?</label>
   <input type="text" id="name" name="name" required>
@@ -90,3 +92,33 @@
 
   <button type="submit">Submit</button>
 </form>
+
+<script>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        /* alert("Thank you for your submission") */
+        const button = document.querySelector(".bookings-form  button[type='submit']")
+        button.innerHTML = "Thanks"
+        button.style = `color: var(--color-a); background-color: var(--color-b)`
+
+        button.disabled = true
+      })
+      .catch((error) => alert(error));
+  };
+
+  document
+    .querySelector("form")
+    .addEventListener("submit", handleSubmit);
+</script>
