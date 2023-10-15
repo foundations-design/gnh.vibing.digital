@@ -50,7 +50,7 @@
    /* layout styles for the top-level sections: header, section.links*/
    header {
       position: absolute;
-      top: 15%;
+      top: 18%;
       left: 5%;
       right: 5%;
       height: 30%;
@@ -90,11 +90,13 @@
    h1.title {
       font-size: clamp(16px, {{25 + theme.titleSize}}lvw, 160px);
       font-family: "Tungsten Narrow";
+      text-transform: uppercase;
+      font-weight: 700;
       text-align: left;
       width: min-content;
       color: {{theme.titleColor}};
       margin: 0;
-      line-height: 1;
+      line-height: 0.9;
    }
 
    p.headline {
