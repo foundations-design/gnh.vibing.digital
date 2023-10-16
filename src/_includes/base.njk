@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ '/assets/fonts/tungsten/stylesheet.css'}}" rel="stylesheet">
-    <link href="{{ '/assets/fonts/inconsolata/wdth.css'}}" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/index.css">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="{{ '/assets/fonts/tungsten/stylesheet.css'}}" rel="stylesheet">
+      <link href="{{ '/assets/fonts/inconsolata/wdth.css'}}" rel="stylesheet">
+      <link rel="stylesheet" href="/styles/index.css">
 
-    <meta property="og:image" content="/og_image.png">
+      <meta property="og:image" content="/og_image.png">
 
-    {% favicons 'src/favicon.png',
-    appleIconBgColor = theme.accentColor %}
+      {% favicons 'src/favicon.png',
+      appleIconBgColor = theme.accentColor %}
 
-    <title>{{content.title}}</title>
-  </head>
+      <title>{{content.title}}</title>
+   </head>
 
-  <body>
+   <body>
 
-    <div class="background"></div>
-    <div class="content">
-      {% block content %}{% endblock %}
-    </div>
-    <footer>
-      <div>
-        {% if lyket %}
-          <div
+      <div class="background"></div>
+      <div class="content">
+         {% block content %}{% endblock %}
+      </div>
+      <footer>
+         <div>
+            {% if lyket %}
+               <div
             class="lyket"
             data-lyket-type="like"
             data-lyket-id="{{developerSettings.baseUrl}}"
@@ -34,112 +34,112 @@
             data-lyket-font-family="sans-serif"
             data-lyket-color-text="rgba(255,255,255,.5)"
             ></div>
-        {% endif %}
-      </div>
-      <div class="logo">
-        <a href="{{developerSettings.linklyReferralLink}}" target="_blank">
-          {% include "logo-var1.svg" %}
-        </a>
-      </div>
-    </footer>
+            {% endif %}
+         </div>
+         <div class="logo">
+            <a href="{{developerSettings.linklyReferralLink}}" target="_blank">
+               {% include "logo-var1.svg" %}
+            </a>
+         </div>
+      </footer>
 
-    <style>
+      <style>
 
-      /*STARTER LAYOUT*/
-      /* The following CSS is closely tied with the business specifications of LITE/STARTER. */
-      /*
+         /*STARTER LAYOUT*/
+         /* The following CSS is closely tied with the business specifications of LITE/STARTER. */
+         /*
       Specifically: 
         - STARTER supports a maximum width of 720px, based on the viewport size of the largest smartphones
         - Any viewports larger than 720px will show a square website
       */
-      :root {
-        --starter-max-height: 1280px;
-        --starter-max-width: 720px;
-      }
+         :root {
+            --starter-max-height: 1280px;
+            --starter-max-width: 720px;
+         }
 
-      @media (prefers-color-scheme: dark) {
-        html {
-          background-color: black;
-        }
-      }
+         @media (prefers-color-scheme: dark) {
+            html {
+               background-color: black;
+            }
+         }
 
-      @media (prefers-color-scheme: light) {
-        html {
-          background-color: #ECEAEA;
-        }
-      }
+         @media (prefers-color-scheme: light) {
+            html {
+               background-color: #ECEAEA;
+            }
+         }
 
-      html {
-        height: 100lvh;
-        width: 100lvw;
-        display: grid;
-        place-content: center;
-        position: relative;
-      }
+         html {
+            height: 100svh;
+            width: 100lvw;
+            display: grid;
+            place-content: center;
+            position: relative;
+         }
 
-      body {
-        height: 100lvh;
-        width: 100lvw;
-        position: relative;
-      }
+         body {
+            height: 100svh;
+            width: 100lvw;
+            position: relative;
+         }
 
-      .background {
-        height: 100%;
-        width: 100%;
-        background-image: url({{content.backgroundImage}});
-        background-color: {{theme.backgroundColor}};
-        background-position: 50% 80px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        position: fixed;
-      }
+         .background {
+            height: 100%;
+            width: 100%;
+            background-image: url({{content.backgroundImage}});
+            background-color: {{theme.backgroundColor}};
+            background-position: 50% 80px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: fixed;
+         }
 
-      .content {
-        position: relative;
-        height: 100lvh;
-        width: 100lvw;
-        overflow-y: scroll;
-      }
+         .content {
+            position: relative;
+            height: 100svh;
+            width: 100lvw;
+            overflow-y: scroll;
+         }
 
-      /* the value of media query below should be the same as --starter-max-width */
-      @media (min-width: 720px) {
-        .background,
-        .content,
-        body {
-          max-width: var(--starter-max-width);
-          max-height: var(--starter-max-width);
-          border-radius: 10px;
-          background-position: 50% 50%;
-          margin: auto;
-        }
-      }
+         /* the value of media query below should be the same as --starter-max-width */
+         @media (min-width: 720px) {
+            .background,
+            .content,
+            body {
+               max-width: var(--starter-max-width);
+               max-height: var(--starter-max-width);
+               border-radius: 10px;
+               background-position: 50% 50%;
+               margin: auto;
+            }
+         }
 
-      /* */
+         /* */
 
-      footer {
-        position: absolute;
-        bottom: 0;
-        place-self: flex-end center;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        width: 100%;
-        justify-items: center;
-        align-items: center;
-      }
+         footer {
+            position: absolute;
+            bottom: 0;
+            place-self: flex-end center;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 100%;
+            justify-items: center;
+            align-items: center;
+         }
 
-      footer > *:first-child {
-        margin-left: var(--space-xs);
-        place-self: flex-start;
-      }
+         footer > *:first-child {
+            margin-left: var(--space-xs);
+            place-self: flex-start;
+         }
 
-      .logo {
-        margin-bottom: var(--space-2xs);
-        width: 30px;
-      }
-    </style>
-    {% if lyket %}
+         .logo {
+            margin-bottom: var(--space-2xs);
+            width: 30px;
+         }
+      </style>
+      {% if lyket %}
 
-      <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_b2e989b79fbbbe5f5c7b7d42869d3d"></script>
+         <script src="https://unpkg.com/@lyket/widget@latest/dist/lyket.js?apiKey=pt_b2e989b79fbbbe5f5c7b7d42869d3d"></script>
 
-    {% endif %}
-  </html>
+      {% endif %}
+   </html>
